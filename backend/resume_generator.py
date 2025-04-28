@@ -1,9 +1,14 @@
 import openai
+from dotenv import load_dotenv
+import os
 from jinja2 import Template
 from weasyprint import HTML
 
-# Optional: Load API key securely in real project
-openai.api_key = "YOUR_OPENAI_API_KEY"  # Replace this or use env var
+# Load environment variables from .env
+load_dotenv()
+
+# Now fetch your key securely
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_resume_text(user_data):
     prompt = f"""
