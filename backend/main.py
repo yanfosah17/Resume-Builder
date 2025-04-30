@@ -21,14 +21,26 @@ async def generate_resume(
     role: str = Form(...),
     experience: str = Form(...),
     skills: str = Form(...),
-    education: str = Form(...)
+    education: str = Form(...),
+    phone: str = Form(...),
+    email: str = Form(...),
+    location: str = Form(...),
+    summary: str = Form(...),
+    certifications: str = Form(...),
+    languages: str = Form(...),
 ):
     user_data = {
         "name": name,
         "role": role,
         "experience": experience,
         "skills": skills,
-        "education": education
+        "education": education,
+        "phone": phone,
+        "email": email,
+        "location": location,
+        "summary": summary,
+        "certifications": certifications,
+        "languages": languages
     }
     resume_text = generate_resume_text(user_data)
     pdf = generate_resume_pdf(resume_text)
